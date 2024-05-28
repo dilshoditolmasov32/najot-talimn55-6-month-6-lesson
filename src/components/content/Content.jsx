@@ -19,11 +19,13 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaEye } from "react-icons/fa";
 import { nanoid } from "nanoid";
 import { NavLink } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function Content() {
   const [modalVisible, setModalVisible] = useState(false);
   const [data, setData] = useState([]);
   const [inputData, setInputData] = useState({});
+  const [search, setSearch] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -82,6 +84,7 @@ export default function Content() {
                     sx: { fontSize: "default" },
                   }}
                   variant="standard"
+                  onChange={(e) => setSearch(e.target.value)}
                 />
               </Grid>
               <Grid item>
@@ -115,31 +118,37 @@ export default function Content() {
               </thead>
 
               <tbody>
-                {data?.map((item, index) => (
-                  <tr key={index}>
-                    <td>{item.firstname}</td>
-                    <td>{item.lastname}</td>
-                    <td>{item.number}</td>
-                    <td>{item.email}</td>
-                    <td>{item.address}</td>
-                    <td>{item.option}</td>
-                    <button
-                      className="btn btn-danger m-2"
-                      onClick={() => handleClick(item.id)}
-                    >
-                      <RiDeleteBin6Line />
-                    </button>
+                {data
+                  .filter((element) =>
+                    search.toLowerCase() === ""
+                      ? element
+                      : element.firstname.toLowerCase().includes(search)
+                  )
+                  ?.map((item, index) => (
+                    <tr key={index}>
+                      <td>{item.firstname}</td>
+                      <td>{item.lastname}</td>
+                      <td>{item.number}</td>
+                      <td>{item.email}</td>
+                      <td>{item.address}</td>
+                      <td>{item.option}</td>
+                      <button
+                        className="btn btn-danger m-2"
+                        onClick={() => handleClick(item.id)}
+                      >
+                        <RiDeleteBin6Line />
+                      </button>
 
-                    <button
-                      className="btn btn-dark m-2"
-                      onClick={() => handleClickSee(item.id)}
-                    >
-                      <NavLink to={"/user"}>
-                        <FaEye />
-                      </NavLink>
-                    </button>
-                  </tr>
-                ))}
+                      <button
+                        className="btn btn-dark m-2"
+                        onClick={() => handleClickSee(item.id)}
+                      >
+                        <NavLink to={"/user"}>
+                          <FaEye />
+                        </NavLink>
+                      </button>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>
@@ -205,6 +214,8 @@ export default function Content() {
           </div>
         </Form>
       </Rodal>
+
+      <ToastContainer />
     </>
   );
 }

@@ -11,6 +11,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+
 function Copyright(props) {
   return (
     <Typography
@@ -33,6 +34,7 @@ const defaultTheme = createTheme();
 export default function SignIn() {
   const navigation = useNavigate();
   const [form, setForm] = useState({});
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const { email, password } = form;
@@ -65,7 +67,7 @@ export default function SignIn() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Login
           </Typography>
           <Box
             component="form"
@@ -102,7 +104,7 @@ export default function SignIn() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Login
             </Button>
           </Box>
         </Box>
