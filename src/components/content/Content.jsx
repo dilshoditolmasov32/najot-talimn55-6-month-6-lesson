@@ -13,11 +13,26 @@ import SearchIcon from "@mui/icons-material/Search";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import Rodal from "rodal";
 import "rodal/lib/rodal.css";
-import Forma from "../form/Forma";
-import TableData from "../tableData/TableData";
+import { Form, FormGroup } from "react-bootstrap";
+import "../tableData/tableData.css";
 
 export default function Content() {
   const [modalVisible, setModalVisible] = useState(false);
+  const [data, setData] = useState([]);
+  const [inputData, setInputData] = useState({});
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    data.push(inputData);
+    setData([...data]);
+    setModalVisible(false);
+    e.target.reset();
+  }
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setInputData({ ...inputData, [name]: value });
+  }
 
   return (
     <>
@@ -69,7 +84,31 @@ export default function Content() {
           </Toolbar>
         </AppBar>
         <Typography sx={{ my: 5, mx: 2 }} color="text.secondary" align="center">
-          <TableData />
+          <div>
+            <table id="customers">
+              <thead>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Phone number</th>
+                <th>Your email</th>
+                <th>Your address</th>
+                <th>Gender</th>
+              </thead>
+
+              <tbody>
+                {data?.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.firstname}</td>
+                    <td>{item.lastname}</td>
+                    <td>{item.number}</td>
+                    <td>{item.email}</td>
+                    <td>{item.address}</td>
+                    <td>{item.option}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </Typography>
       </Paper>
 
@@ -78,7 +117,59 @@ export default function Content() {
         onClose={() => setModalVisible(false)}
         height={420}
       >
-        <Forma />
+        <Form onSubmit={handleSubmit}>
+          <FormGroup className="mt-4 ">
+            <Form.Control
+              className="mb-3"
+              type="text"
+              placeholder="Firstname"
+              name="firstname"
+              onChange={handleChange}
+            />
+            <Form.Control
+              className="mb-3"
+              type="text"
+              placeholder="Lastname"
+              name="lastname"
+              onChange={handleChange}
+            />
+            <Form.Control
+              className="mb-3"
+              type="number"
+              placeholder="Phone number"
+              name="number"
+              onChange={handleChange}
+            />
+            <Form.Control
+              className="mb-3"
+              type="email"
+              placeholder="Your email"
+              name="email"
+              onChange={handleChange}
+            />
+            <Form.Control
+              className="mb-3"
+              type="text"
+              placeholder="Your address"
+              name="address"
+              onChange={handleChange}
+            />
+            <select class="form-select" onChange={handleChange} name="option">
+              <option value="">Gender</option>
+              <option value="male">Male</option>
+              <option value="femali">Femali</option>
+            </select>
+          </FormGroup>
+
+          <div className="mt-3 d-flex justify-content-end gap-4  ">
+            <button
+              className="btn btn-success mb-3 w-25 "
+              onSubmit={handleSubmit}
+            >
+              Save
+            </button>
+          </div>
+        </Form>
       </Rodal>
     </>
   );
