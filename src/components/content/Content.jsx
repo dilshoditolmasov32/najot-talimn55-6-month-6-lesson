@@ -15,6 +15,10 @@ import Rodal from "rodal";
 import "rodal/lib/rodal.css";
 import { Form, FormGroup } from "react-bootstrap";
 import "../tableData/tableData.css";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { FaEye } from "react-icons/fa";
+import { nanoid } from "nanoid";
+import { NavLink } from "react-router-dom";
 
 export default function Content() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -23,7 +27,9 @@ export default function Content() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    data.push(inputData);
+    let id = nanoid();
+    const parol = { ...inputData, id };
+    data.push(parol);
     setData([...data]);
     setModalVisible(false);
     e.target.reset();
@@ -34,6 +40,18 @@ export default function Content() {
     setInputData({ ...inputData, [name]: value });
   }
 
+  function handleClick(id) {
+    const new_user = data.filter((item) => item.id !== id);
+    setData(new_user);
+  }
+
+  function handleClickSee(id) {
+    const new_user = data.filter((item) => {
+      if (item.id === id) {
+      }
+    });
+    setData(new_user);
+  }
   return (
     <>
       <Paper
@@ -93,6 +111,7 @@ export default function Content() {
                 <th>Your email</th>
                 <th>Your address</th>
                 <th>Gender</th>
+                <th>delete and see</th>
               </thead>
 
               <tbody>
@@ -104,6 +123,21 @@ export default function Content() {
                     <td>{item.email}</td>
                     <td>{item.address}</td>
                     <td>{item.option}</td>
+                    <button
+                      className="btn btn-danger m-2"
+                      onClick={() => handleClick(item.id)}
+                    >
+                      <RiDeleteBin6Line />
+                    </button>
+
+                    <button
+                      className="btn btn-dark m-2"
+                      onClick={() => handleClickSee(item.id)}
+                    >
+                      <NavLink to={"/user"}>
+                        <FaEye />
+                      </NavLink>
+                    </button>
                   </tr>
                 ))}
               </tbody>
