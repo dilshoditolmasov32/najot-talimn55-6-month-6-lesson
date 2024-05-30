@@ -1,4 +1,4 @@
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./sidebar.css";
 import logo from "../../assets/images/logo.png";
 import {
@@ -11,9 +11,9 @@ import { FiBarChart2 } from "react-icons/fi";
 import { CgPoll } from "react-icons/cg";
 
 const Sidebar = () => {
-  let location = useLocation();
+  // let location = useLocation();
   let navigate = useNavigate();
-  
+
   return (
     <div className="sidebar-page">
       <span className="logo_najot">
@@ -23,15 +23,7 @@ const Sidebar = () => {
       </span>
       <ul>
         <li>
-          <NavLink
-            to="/najottalim"
-            // className={
-            //   "" +
-            //   (location.pathname === "/najottalim"
-            //     ? "bg-#000"
-            //     : "")
-            // }
-          >
+          <NavLink to="/najottalim">
             <span>
               <MdHome />
             </span>
