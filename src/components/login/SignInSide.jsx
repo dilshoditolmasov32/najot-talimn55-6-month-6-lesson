@@ -65,7 +65,9 @@ export default function SignInSide() {
               flexDirection: "column",
             }}
           >
-            <Typography variant="h4">Kirish</Typography>
+            <Typography className="enter_link" variant="h4">
+              Kirish
+            </Typography>
             <Box
               component="form"
               noValidate
@@ -96,11 +98,11 @@ export default function SignInSide() {
               />
 
               <Button
-                className="login-btn"
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                id="login-btn"
               >
                 Kirish
               </Button>
