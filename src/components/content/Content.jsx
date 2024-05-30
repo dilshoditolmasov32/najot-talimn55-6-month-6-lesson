@@ -49,13 +49,13 @@ export default function Content() {
     setData(new_user);
   }
 
-  // function handleClickSee(id) {
-  //   const new_user = data.filter((item) => {
-  //     if (item.id === id) {
-  //     }
-  //   });
-  //   setData(new_user);
-  // }
+  function handleClickSee(id) {
+    const new_user = data.filter((item) => {
+      if (item.id === id) {
+      }
+    });
+    setData(new_user);
+  }
   return (
     <>
       <h2 className="diamond">
@@ -64,8 +64,12 @@ export default function Content() {
           <IoDiamondOutline className="kumush" />
         </span>
       </h2>
-      <img src={card} alt="card" style={{ width: 300, marginLeft:20, marginTop:5}}  />
-      {/* <Paper
+      <img
+        src={card}
+        alt="card"
+        style={{ width: 300, marginLeft: 20, marginTop: 5 }}
+      />
+      <Paper
         sx={{
           maxWidth: 1180,
           margin: "auto",
@@ -153,7 +157,7 @@ export default function Content() {
                         // onClick={() => handleClickSee(item.id)}
                       >
                         <NavLink to={"/user"}>
-                          <FaEye />
+                          <FaEye className="eye" />
                         </NavLink>
                       </button>
                     </tr>
@@ -162,9 +166,9 @@ export default function Content() {
             </table>
           </div>
         </Typography>
-      </Paper> */}
+      </Paper>
 
-      {/* <Rodal
+      <Rodal
         visible={modalVisible}
         onClose={() => setModalVisible(false)}
         height={420}
@@ -224,7 +228,7 @@ export default function Content() {
         </Form>
       </Rodal>
 
-      <ToastContainer /> */}
+      <ToastContainer />
     </>
   );
 }
