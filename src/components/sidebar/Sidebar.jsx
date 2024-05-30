@@ -1,14 +1,19 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import "./sidebar.css";
-import logo from "../../../assets/images/logo.png";
-import { MdGroups, MdOutlineSettings, MdOutlinePayment, MdHome } from "react-icons/md";
+import logo from "../../assets/images/logo.png";
+import {
+  MdGroups,
+  MdOutlineSettings,
+  MdOutlinePayment,
+  MdHome,
+} from "react-icons/md";
 import { FiBarChart2 } from "react-icons/fi";
 import { CgPoll } from "react-icons/cg";
-import { useLocation } from "react-router-dom";
 
 const Sidebar = () => {
-  const location = useLocation();
-  console.log(location);
+  let location = useLocation();
+  let navigate = useNavigate();
+  
   return (
     <div className="sidebar-page">
       <span className="logo_najot">
@@ -18,7 +23,15 @@ const Sidebar = () => {
       </span>
       <ul>
         <li>
-          <NavLink to="/najottalim">
+          <NavLink
+            to="/najottalim"
+            // className={
+            //   "" +
+            //   (location.pathname === "/najottalim"
+            //     ? "bg-#000"
+            //     : "")
+            // }
+          >
             <span>
               <MdHome />
             </span>

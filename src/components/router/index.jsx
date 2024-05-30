@@ -8,8 +8,7 @@ import {
 import App from "../../App";
 import SignIn from "../login/SignIn";
 import Content from "../content/Content";
-// import UserData from "../tableData/user/UserData";
-import Najottalim from "../pages/najot-ta'lim/najottalim";
+import Najottalim from "../najot-ta'lim/najottalim";
 import Mygroup from "../pages/group/my-group";
 import Payments from "../pages/payment/payments";
 import Pointers from "../pages/pointres/pointer";

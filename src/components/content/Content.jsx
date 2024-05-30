@@ -65,7 +65,7 @@ export default function Content() {
         </span>
       </h2>
       <img src={card} alt="card" style={{ width: 300, marginLeft:20, marginTop:5}}  />
-      <Paper
+      {/* <Paper
         sx={{
           maxWidth: 1180,
           margin: "auto",
@@ -162,9 +162,9 @@ export default function Content() {
             </table>
           </div>
         </Typography>
-      </Paper>
+      </Paper> */}
 
-      <Rodal
+      {/* <Rodal
         visible={modalVisible}
         onClose={() => setModalVisible(false)}
         height={420}
@@ -224,7 +224,7 @@ export default function Content() {
         </Form>
       </Rodal>
 
-      <ToastContainer />
+      <ToastContainer /> */}
     </>
   );
 }
