@@ -20,7 +20,9 @@ import { FaEye } from "react-icons/fa";
 import { nanoid } from "nanoid";
 import { NavLink } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-
+import card from "../../assets/images/card-2.png";
+import { IoDiamondOutline } from "react-icons/io5";
+import "./content.css";
 export default function Content() {
   const [modalVisible, setModalVisible] = useState(false);
   const [data, setData] = useState([]);
@@ -47,15 +49,22 @@ export default function Content() {
     setData(new_user);
   }
 
-  function handleClickSee(id) {
-    const new_user = data.filter((item) => {
-      if (item.id === id) {
-      }
-    });
-    setData(new_user);
-  }
+  // function handleClickSee(id) {
+  //   const new_user = data.filter((item) => {
+  //     if (item.id === id) {
+  //     }
+  //   });
+  //   setData(new_user);
+  // }
   return (
     <>
+      <h2 className="diamond">
+        Kumushlar: 756{" "}
+        <span>
+          <IoDiamondOutline className="kumush" />
+        </span>
+      </h2>
+      <img src={card} alt="card" style={{ width: 300, marginLeft:20, marginTop:5}}  />
       <Paper
         sx={{
           maxWidth: 1180,
@@ -141,7 +150,7 @@ export default function Content() {
 
                       <button
                         className="btn btn-dark m-2"
-                        onClick={() => handleClickSee(item.id)}
+                        // onClick={() => handleClickSee(item.id)}
                       >
                         <NavLink to={"/user"}>
                           <FaEye />

@@ -1,0 +1,10 @@
+.main_layout {
+  display: flex;
+  background-color: #0000000c;
+  border-radius: 10px;
+}
+
+.main_page {
+  width: 100%;
+  
+}

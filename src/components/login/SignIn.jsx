@@ -40,7 +40,7 @@ export default function SignIn() {
     const { email, password } = form;
 
     if (email === "dilshoditolmasov32@gmail.com" && password === "123") {
-      navigation("/admin");
+      navigation("/najottalim");
     } else {
       alert("Login va parol erp tizimida yozilgan");
     }

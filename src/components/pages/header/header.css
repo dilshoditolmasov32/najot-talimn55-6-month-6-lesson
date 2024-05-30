@@ -1,0 +1,47 @@
+.header_page {
+  background-color: #fff;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  right: 0; 
+}
+
+.menu-btn {
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  line-height: 24px;
+  padding: 5px;
+  min-width: auto;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: rgba(188, 142, 91, 0.9);
+  border: none;
+  border-radius: 7px;
+}
+
+.menu {
+  font-size: 22px;
+}
+
+.logout {
+  font-size: 22px;
+  color: #00000096;
+}
+
+.logout-btn {
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 60px;
+  border: none;
+  background: none;
+}

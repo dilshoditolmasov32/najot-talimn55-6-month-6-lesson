@@ -1,0 +1,14 @@
+.diamond {
+  margin-top: 20px;
+  margin-left: 20px;
+  display: flex;
+  align-content: inherit;
+  gap: 10px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.785);
+}
+
+.kumush {
+  font-size: 24px;
+  color: #0000009a;
+}
