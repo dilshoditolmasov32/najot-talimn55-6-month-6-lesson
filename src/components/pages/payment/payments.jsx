@@ -15,6 +15,7 @@ const Payments = () => {
   return (
     <>
       <h1>Users</h1>
+      <h2>nega</h2>
       <div className="container">
         <div className="row">
           {cardData.map((card) => (
@@ -28,7 +29,7 @@ const Payments = () => {
                 </div>
                 <div className="card-body">
                   <h5 className="card-title">
-                    FullName: 
+                    FullName:
                     {card.firstName} {card.lastName}
                   </h5>
                   <p className="card-text"> Phone: {card.phone}</p>
