@@ -20,8 +20,8 @@ import { FaEye } from "react-icons/fa";
 import { nanoid } from "nanoid";
 import { NavLink } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import card from "../../assets/images/card-2.png";
 import { IoDiamondOutline } from "react-icons/io5";
+import { MdModeEdit } from "react-icons/md";
 import "./content.css";
 export default function Content() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -58,17 +58,6 @@ export default function Content() {
   }
   return (
     <>
-      <h2 className="diamond">
-        Kumushlar: 756{" "}
-        <span>
-          <IoDiamondOutline className="kumush" />
-        </span>
-      </h2>
-      <img
-        src={card}
-        alt="card"
-        style={{ width: 300, marginLeft: 20, marginTop: 5 }}
-      />
       <Paper
         sx={{
           maxWidth: 1180,
@@ -126,7 +115,7 @@ export default function Content() {
                 <th>Phone number</th>
                 <th>Your email</th>
                 <th>Your address</th>
-                <th>Gender</th>
+                {/* <th>Gender</th> */}
                 <th>delete and see</th>
               </thead>
 
@@ -144,7 +133,6 @@ export default function Content() {
                       <td>{item.number}</td>
                       <td>{item.email}</td>
                       <td>{item.address}</td>
-                      <td>{item.option}</td>
                       <button
                         className="btn btn-danger m-2"
                         onClick={() => handleClick(item.id)}
@@ -154,11 +142,15 @@ export default function Content() {
 
                       <button
                         className="btn btn-dark m-2"
-                        // onClick={() => handleClickSee(item.id)}
+                        onClick={() => handleClickSee(item.id)}
                       >
                         <NavLink to={"/user"}>
                           <FaEye className="eye" />
                         </NavLink>
+                      </button>
+
+                      <button className="btn btn-info">
+                        <MdModeEdit />
                       </button>
                     </tr>
                   ))}

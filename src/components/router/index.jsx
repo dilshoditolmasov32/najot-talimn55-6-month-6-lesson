@@ -20,7 +20,6 @@ const Index = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<App />}>
-        {/* <Route index element={<SignIn />} /> */}
         <Route index element={<SignInSide />} />
         <Route path="/najottalim/*" element={<Najottalim />}>
           <Route index element={<Content />} />
