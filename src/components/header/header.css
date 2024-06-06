@@ -8,6 +8,8 @@
   position: sticky;
   top: 0;
   right: 0;
+  z-index: 99;
+  outline: hidden;
 }
 
 .menu-btn {
@@ -66,28 +68,25 @@
   border: none;
   border: none;
   background: none;
-  padding: 8px 24px; 
-  transition: .5s;
-  border-radius:8px;
+  padding: 8px 24px;
+  transition: 0.5s;
+  border-radius: 8px;
 }
 
-.btn-modal-btn1{
-color: rgba(255, 127, 80, 0.58);
-font-size: 20px;
-font-weight: 500;
-
+.btn-modal-btn1 {
+  color: rgba(255, 127, 80, 0.58);
+  font-size: 20px;
+  font-weight: 500;
 }
 
-.btn-modal-btn1:hover{
-background-color: #00000015;
-
+.btn-modal-btn1:hover {
+  background-color: #00000015;
 }
 
 .btn-modal-btn2 {
   color: #fff;
- 
-  background-color: rgba(210, 105, 30, 0.685);
- 
-  font-size: 20px;
 
+  background-color: rgba(210, 105, 30, 0.685);
+
+  font-size: 20px;
 }
